@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_*
+
+# Jobs (isolamento por execução)
+.jobs/
+*.job/
+.runtime/
+state.json.tmp
+state.json.tmp.*
+*.tmp
+
+# Runtime data (bancos de trabalho, logs locais)
+*.h2.db
+*.trace.db
+*.lock.db
+state.json.lock
+data/
+logs/
+tmp/
+
+# Exceção: seed limpo vendored (0 cálculos, 0 processos)
+!vendor/pjecalc/2.16.0/seed/database/pjecalc.h2.db
+
+# Artefatos de runtime do Tomcat dentro do vendor (gerados pelo boot)
+vendor/pjecalc/2.16.0/tomcat/work/
+vendor/pjecalc/2.16.0/tomcat/logs/
+
+# Artefatos obtidos sob demanda
+third_party/
+.tools/
+.java/
+
+# Artefatos de execução
+*.pjc
+*.pdf
+*.screenshot.png
+*.ser
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (se usado no tooling)
+node_modules/

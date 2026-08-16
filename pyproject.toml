@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pjecalc-autonomous"
+version = "0.1.0"
+description = "PJeCalc Agent: CLI + MCP para operar o PJe-Calc 2.16.0 oficial com auditoria e pipeline fail-closed."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary (interoperability study)" }
+authors = [{ name = "lucianumm" }]
+keywords = ["pjecalc", "mcp", "labor", "liquidation", "selenium"]
+dependencies = [
+  "requests>=2.28",
+  "pydantic>=2.0",
+  # FastMCP is the stable API used by pjecalc_auto.mcp_server.  MCP 2.x
+  # removed mcp.server.fastmcp, so an unconstrained `mcp>=1.0` installation
+  # makes the advertised MCP entrypoint fail at import time.
+  "mcp>=1.0,<2.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0,<2.0"]
+selenium = ["selenium>=4.10"]
+pdf = ["pypdf>=3.0", "pillow>=10.0"]
+dev = ["pytest>=8.0", "ruff>=0.5", "mypy>=1.10"]
+
+[project.scripts]
+pjecalc-auto = "pjecalc_auto.cli:main"
+
+[tool.setuptools]
+packages = ["pjecalc_auto"]
